@@ -1,0 +1,11 @@
+[Unit]
+Description=Notification handler for eww
+After=eww.service
+
+[Service]
+ExecStart=%h/.local/bin/notification-handler
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

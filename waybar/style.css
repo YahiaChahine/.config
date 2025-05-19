@@ -1,0 +1,327 @@
+/* Rose Pine color variables */
+@define-color base #191724;
+@define-color surface #1f1d2e;
+@define-color overlay #26233a;
+@define-color muted #6e6a86;
+@define-color subtle #908caa;
+@define-color text #e0def4;
+@define-color love #eb6f92;
+@define-color gold #f6c177;
+@define-color rose #ebbcba;
+@define-color pine #31748f;
+@define-color foam #9ccfd8;
+@define-color iris #c4a7e7;
+@define-color highlightLow #21202e;
+@define-color highlightMed #403d52;
+@define-color highlightHigh #524f67;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+window#waybar {
+    background-color: @base;
+    border-bottom: 3px solid @overlay;
+    color: @text;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @text;
+}
+
+#pulseaudio:hover {
+    background-color: @gold;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: @base;
+    color: @text;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+    color: @rose;
+    }
+
+#workspaces button.urgent {
+    background-color: @love;
+}
+
+#mode {
+    background-color: @overlay;
+    box-shadow: inset 0 -3px @text;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+    color: @text;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: @overlay;
+}
+
+#battery {
+    background-color: @surface;
+    color: @text;
+}
+
+#battery.charging, #battery.plugged {
+    color: @text;
+    background-color: @pine;
+}
+
+@keyframes blink {
+    to {
+        background-color: @surface;
+        color: @text;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @love;
+    color: @text;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: @love;
+    color: @text;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: @pine;
+    color: @text;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: @foam;
+    color: @base;
+}
+
+label:focus {
+    background-color: @base;
+}
+
+#cpu {
+    background-color: @foam;
+    color: @base;
+}
+
+#memory {
+    background-color: @iris;
+}
+
+#disk {
+    background-color: @gold;
+}
+
+#backlight {
+    background-color: @subtle;
+}
+
+#network {
+    background-color: @pine;
+}
+
+#network.disconnected {
+    background-color: @love;
+}
+
+#pulseaudio {
+    background-color: @gold;
+    color: @base;
+}
+
+#pulseaudio.muted {
+    background-color: @muted;
+    color: @text;
+}
+
+#wireplumber {
+    background-color: @rose;
+    color: @base;
+}
+
+#wireplumber.muted {
+    background-color: @love;
+}
+
+#custom-media {
+    background-color: @foam;
+    color: @base;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: @foam;
+}
+
+#custom-media.custom-vlc {
+    background-color: @gold;
+}
+
+#temperature {
+    background-color: @gold;
+}
+
+#temperature.critical {
+    background-color: @love;
+}
+
+#tray {
+    background-color: @pine;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @love;
+}
+
+#idle_inhibitor {
+    background-color: @surface;
+}
+
+#idle_inhibitor.activated {
+    background-color: @text;
+    color: @surface;
+}
+
+#mpd {
+    background-color: @foam;
+    color: @base;
+}
+
+#mpd.disconnected {
+    background-color: @love;
+}
+
+#mpd.stopped {
+    background-color: @muted;
+}
+
+#mpd.paused {
+    background-color: @foam;
+}
+
+#language {
+    background: @base;
+    color: @text;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: @base;
+    color: @text;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: @text;
+}
+
+#privacy-item.screenshare {
+    background-color: @gold;
+}
+
+#privacy-item.audio-in {
+    background-color: @foam;
+}
+
+#privacy-item.audio-out {
+    background-color: @pine;
+}
